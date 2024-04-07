@@ -1,11 +1,13 @@
 //* Imports
 
+import initCLI from "./plugins/cli/initCLI";
+
 async function main () {
     await Promise.all([
         //* Main
     ]);
 
-    //* Post Main
+    await initCLI({});
 }
 
 main();
