@@ -4,7 +4,7 @@ import readTheme from "./readTheme";
 export default async function applyTheme (theme: string, workdir = process.cwd()) {
     const styles = await readTheme(theme);
     
-    await transformVSCodeSettings(workdir, (settings) => {
+    await transformVSCodeSettings((settings) => {
         if(styles.peacock?.color) {
             settings["peacock.color"] = styles.peacock.color;
             settings["peacock.affectTitleBar"] = true;
@@ -27,5 +27,5 @@ export default async function applyTheme (theme: string, workdir = process.cwd()
         settings["_.theme"] = styles.name;
         
         return settings;
-    });
+    }, workdir);
 }
